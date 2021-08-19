@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { fetchWeather } from '../../api/apiCalls';
+import './App.css';
 
 export const App = () => {
   const [town, setTown] = useState('');
