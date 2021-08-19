@@ -14,32 +14,30 @@ export const App = () => {
   };
 
   return (
-    <main>
+    <main className='main-bg'>
       <header>
         <h1>Weatherly</h1>
       </header>
-      <section>
-        <form>
-          <label htmlFor='town'>Enter a town name to get weather</label>
-          <input
-            id='town'
-            type='text'
-            placeholder='New York'
-            onChange={e => setTown(e.target.value)}
-            value={town}
-          />
-          <button onClick={e => handleClick(e)}>Get Weather</button>
-        </form>
-        {weather.main && (
-          <section className='weather-result'>
-            <h2 className='cityName'>
-              {weather.name},
-              <span className='country'>{weather.sys.country}</span>
-            </h2>
-            <div>{Math.round(weather.main.temp)}&deg;F</div>
-          </section>
-        )}
-      </section>
+      <form>
+        <label htmlFor='town'>Enter a town name to get weather</label>
+        <input
+          id='town'
+          type='text'
+          placeholder='New York'
+          onChange={e => setTown(e.target.value)}
+          value={town}
+        />
+        <button onClick={e => handleClick(e)}>Get Weather</button>
+      </form>
+      {weather.main && (
+        <section className='weather-result'>
+          <h2 className='cityName'>
+            {weather.name},
+            <span className='country'>{weather.sys.country}</span>
+          </h2>
+          <div>{Math.round(weather.main.temp)}&deg;F</div>
+        </section>
+      )}
     </main>
   );
 };
