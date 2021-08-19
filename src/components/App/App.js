@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { fetchWeather } from '../../api/apiCalls';
 
 export const App = () => {
-<<<<<<< Updated upstream
-  return <h1>Hi PWA</h1>;
-=======
   const [town, setTown] = useState('');
   const [weather, setWeather] = useState({});
 
@@ -43,5 +41,4 @@ export const App = () => {
       </section>
     </main>
   );
->>>>>>> Stashed changes
 };
