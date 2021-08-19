@@ -10,6 +10,7 @@ export const App = () => {
     e.preventDefault();
     let data = await fetchWeather(town);
     setWeather(data);
+    setTown('');
   };
 
   return (
@@ -19,16 +20,25 @@ export const App = () => {
       </header>
       <section>
         <form>
-          <label htmlFor='town'>Enter a town or zip to get weather</label>
+          <label htmlFor='town'>Enter a town name to get weather</label>
           <input
             id='town'
             type='text'
-            placeholder='Town or zip'
+            placeholder='New York'
             onChange={e => setTown(e.target.value)}
             value={town}
           />
           <button onClick={e => handleClick(e)}>Get Weather</button>
         </form>
+        {weather.main && (
+          <section className='weather-result'>
+            <h2 className='cityName'>
+              {weather.name},
+              <span className='country'>{weather.sys.country}</span>
+            </h2>
+            <div>{Math.round(weather.main.temp)}&deg;F</div>
+          </section>
+        )}
       </section>
     </main>
   );
